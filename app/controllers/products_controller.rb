@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
 
-def show
+  def show
   @product = Product.new
-end
+  end
 
   def create
   @product = Product.new(params[:product])
@@ -13,7 +13,7 @@ end
   private
 
   def product_params
-    params.require(:product).permit(:name, :price)
+    params.require(:product).permit(:name, :price, :category, :product)
   end
 
 end

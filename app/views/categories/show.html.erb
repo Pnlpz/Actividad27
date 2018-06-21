@@ -4,7 +4,20 @@
   <strong>Name:</strong>
   <%= @category.name %>
 </p>
-<%= form_with(model: [ @category, @product ]) do |form| %>
+<form class="" action="index.html" method="post">
+  <%= form_with(model: [@category, @product ], local: true) do |form| %>
+  <div class="field">
+      <%= form.label :name %>
+  </div>
+  <div class="field">
+      <%= form.label :price %>
+  </div>
+      <%= link_to 'Edit', edit_category_path(@category) %> |
+      <%= link_to 'Back', categories_path %>
+  <% end %>
+</form>
+
+<% @category.product.each do |product| %>
+<%= product.name %>
+<%= product.price %>
 <% end %>
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
